@@ -38,8 +38,13 @@ header {
 }
 
 .list-item-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 2rem;
   width: 15rem;
+  padding: 0.2rem ;
+  border: solid 0.1rem @color-task;
 }
 
 .deadTask {
@@ -104,5 +109,34 @@ header {
     input {
       width: 8rem;
     }
+  }
+}
+
+.file-a {
+  text-decoration: none;
+  color: @color-task;
+  overflow: auto;
+
+  &:hover {
+    cursor: pointer;
+    color: @color-primary;
+    text-decoration: underline;
+  }
+}
+
+.files-list {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.edit-button{
+  background-color: #ffffff;
+  color: @color-task;
+  height: 2rem;
+
+  &:hover{
+    background-color: @color-primary;
+
   }
 }

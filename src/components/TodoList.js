@@ -1,13 +1,23 @@
 import React from "react";
 import ListItem from "./ListItem"
+import { useState } from 'react';
+import { useEffect } from 'react';
+import {AddItemForm} from "./AddItemForm"
 
-function TodoList ({list, setList}) {
+function TodoList () {
+    const [list, setList] = useState([])
+
+    useEffect(() => {
+  
+    }, [list])
+
+
     return(
         <div className='todo-list'>
-            {list.map((item) => (
-                <ListItem item={item} list={list} setList={setList} />
+            {list.map((item, i) => (
+                <ListItem key={i} item={item} list={list} setList={setList} />
             ))}
-           
+            <AddItemForm list={list} setList={setList}/>
         </div>
          
     )

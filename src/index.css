@@ -31,8 +31,13 @@ header {
   font-size: 1.3rem;
 }
 .list-item-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 2rem;
   width: 15rem;
+  padding: 0.2rem;
+  border: solid 0.1rem #4a4d0a;
 }
 .deadTask {
   color: red;
@@ -83,5 +88,28 @@ header {
 }
 .add-task-form label input {
   width: 8rem;
+}
+.file-a {
+  text-decoration: none;
+  color: #4a4d0a;
+  overflow: auto;
+}
+.file-a:hover {
+  cursor: pointer;
+  color: #8e9203bb;
+  text-decoration: underline;
+}
+.files-list {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+.edit-button {
+  background-color: #ffffff;
+  color: #4a4d0a;
+  height: 2rem;
+}
+.edit-button:hover {
+  background-color: #8e9203bb;
 }
 /*# sourceMappingURL=index.css.map */
