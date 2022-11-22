@@ -16,7 +16,7 @@ function TodoList () {
 
     return(
         <div className='todo-list'>
-            <div className="header2">Add first task:</div>
+            {!list.length && <div className="header2">Add first task:</div>}
             {list.map((item, i) => (
                 <ListItem key={i} item={item} list={list} setList={setList} />
             ))}
