@@ -14,11 +14,16 @@ button:hover {
   align-items: center;
   margin-bottom: 7rem;
 }
-header {
+header,
+.header2 {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 4rem;
   color: #8e9203bb;
+}
+.header2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 .list-item {
   border: solid 0.1rem #4a4d0a;

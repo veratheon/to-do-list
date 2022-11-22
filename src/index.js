@@ -2,11 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "@firebase/app";
 import { getAnalytics } from "@firebase/analytics";
 import { getStorage } from "@firebase/storage";
-
+/**
+* Конфигурация для Firebase
+*/
 const firebaseConfig = {
   apiKey: "AIzaSyCZnALr7bKvVPdujuDlvCfyb6Br7EhVuBg",
   authDomain: "todo-list-e5299.firebaseapp.com",
@@ -17,11 +18,15 @@ const firebaseConfig = {
   measurementId: "G-K98Z77SC1V"
 };
 
-// Initialize Firebase
+/**
+* Инициализация Firebase
+*/
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-//my app
+/**
+* рендер приложения
+*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
