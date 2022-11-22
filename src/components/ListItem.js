@@ -9,15 +9,13 @@ function ListItem({item, list, setList}){
     const now = dayjs()
     const taskDate = item.date
 
-    const classDeadline = dayjs().isAfter(dayjs(item.deadline)) ? "deadline list-item-item" : "deadline list-item-item deadTask"
-    console.log(dayjs().isAfter(item.deadline))
+    const classDeadline = dayjs().isAfter(dayjs(item.deadline)) ? "list-item-item deadTask" : "list-item-item"
     function toggleDone() {
         setIsDone(isDone ? false : true)
     }
 
     function deleteTask(id) {
         setList((prevTask => prevTask.filter(item => item.id !== id)))
-        console.log(list)
     }
 
         
@@ -32,7 +30,7 @@ function ListItem({item, list, setList}){
             <div className="list-item-item">{item.name}</div>
             <div className="list-item-item">{item.description}</div>
             <div className={classDeadline}>{item.deadline}</div>
-            <div className="list-item-item">{item.files}</div>
+            <div className="list-item-item">{item.files.map(item => item.name)}</div>
             <button className="delete-item" onClick={() => deleteTask(item.id)}>x</button>
         </div>
     )

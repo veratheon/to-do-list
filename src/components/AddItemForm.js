@@ -1,11 +1,14 @@
 import React from "react"; 
 import { useState } from "react";
+import { useRef } from "react";
 
 function AddItem({list, setList}) {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [deadline, setDeadline] = useState("")
     const [id, setId] = useState(1)
+    const [file, setFile] = useState([])
+    const fileComponent = useRef()
     
 
 
@@ -13,16 +16,22 @@ function AddItem({list, setList}) {
         const task = {
             name: name,
             description: description,
-            deadline:deadline,
-            files: "sedf"
+            deadline: deadline,
+            files: [...file]
         }
         setId(prev => prev + 1)
         setList(prev => [...prev, {...task, id: id}])
-        console.log(list)
+
+    }
+
+    function handleChangeFile(event) {
+        event.preventDefault()
+        setFile(event.target.files)
 
     }
 
     return(
+        <div>
         <div className="add-task-form">
             <label>Name: 
                 <input
@@ -45,9 +54,18 @@ function AddItem({list, setList}) {
                     onChange={(e) => setDeadline(e.target.value)}
                 />
             </label>
+            <label>Files: 
+                <input
+                    type="file"
+                    onChange={handleChangeFile}
+                />
+            </label>
 
-            <button className='add-task' onClick={addTask}>Add new task</button>
 
+            
+
+        </div>
+        <button className='add-task' onClick={addTask}>Add new task</button>
         </div>
     )
 }

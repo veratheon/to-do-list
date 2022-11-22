@@ -75,11 +75,11 @@ header {
   transform: translateY(-7px);
 }
 .add-task-form {
-  margin-top: 2rem;
+  margin: 2rem;
   font-size: 1.2rem;
 }
 .add-task-form label {
-  margin-right: 2rem;
+  margin: 1rem;
 }
 .add-task-form label input {
   width: 8rem;

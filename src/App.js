@@ -6,7 +6,6 @@ import AddItemForm from './components/AddItemForm';
 
 function App() {
   const [list, setList] = useState([])
-  {console.log(list)}
 
   useEffect(() => {
 
