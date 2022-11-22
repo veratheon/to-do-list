@@ -7,11 +7,6 @@ import {AddItemForm} from "./AddItemForm"
 function TodoList () {
     const [list, setList] = useState([])
 
-    useEffect(() => {
-  
-    }, [list])
-
-
     return(
         <div className='todo-list'>
             {list.map((item, i) => (
