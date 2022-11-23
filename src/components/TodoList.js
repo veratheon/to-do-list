@@ -10,9 +10,10 @@ import AddItemForm from "./AddItemForm";
 
 function TodoList () {
     /**
-    * Состояние для списка задач
+    * Состояние для списка задач(загрузка из localstorage)
     */
-    const [list, setList] = useState([])
+    const savedList = JSON.parse(localStorage.getItem('list'));
+    const [list, setList] = useState(savedList ? savedList : [])
 
     return(
         <div className='todo-list'>

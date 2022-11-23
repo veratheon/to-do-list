@@ -4,13 +4,14 @@ import { useState, useEffect } from "react";
 import { useRef } from "react";
 import { storage } from "..";
 import {ref, uploadBytes, getDownloadURL } from "@firebase/storage"
+
  /**
 * Компонент отображает форму для изменения(ввода) задачи:
 * Название, описание, дата, файлы
 * @param {Array} list список всех задач
 * @param {object} editItem изменяемая задача
 * @param {function} setList изменяет список задач
-*@param  {function} setEditForm меняет параметр для видимости компонента изменения
+* @param  {function} setEditForm меняет параметр для видимости компонента изменения
 */
 
 function AddItemForm({list, editItem=null, setList, setEditForm=null}) {
@@ -49,6 +50,11 @@ function AddItemForm({list, editItem=null, setList, setEditForm=null}) {
     */
     const [loading, setLoading] = useState(false)
 
+    /**
+    * Ссылка на список задач
+    */
+    //const [listURL, setListURL] = useState("")
+
 
     /**
     * Хук устанавливает значения компонента для изменения
@@ -59,6 +65,8 @@ function AddItemForm({list, editItem=null, setList, setEditForm=null}) {
         setDescription(editItem?.description || "")
         setFiles(editItem?.files || [])
         setFilesUrl(editItem?.filesURL || [])
+        localStorage.setItem('list', JSON.stringify(list));
+        //sendListToFirebase()
     }, [list])
 
     /**
@@ -75,7 +83,21 @@ function AddItemForm({list, editItem=null, setList, setEditForm=null}) {
             key: id
         }
         setList(prev => [...prev, task])
+        
+        
     }
+    /**
+    * Функция отправляет список задач в firebase но не работает
+    */
+    // function sendListToFirebase() {
+    //     const listRef = ref(storage, `TodoList.JSON`)
+    //     console.log(JSON.stringify(list))
+    //     uploadBytes(listRef, JSON.stringify(list)).then((doc) => {
+    //         getDownloadURL(doc.ref).then((url) => {
+    //             setListURL(url)
+    //         })
+    //     })
+    // }
 
     /**
     * Функция изменяет задачу в списке
@@ -92,6 +114,7 @@ function AddItemForm({list, editItem=null, setList, setEditForm=null}) {
             downloadURL: filesURL,
             key: editItem.key
         }
+        
 
         /**
         * Изменение в списке нужной задачи
